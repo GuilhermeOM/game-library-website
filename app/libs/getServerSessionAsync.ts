@@ -1,48 +1,13 @@
+import { GetServerSessionAsync } from '@/@types/GetServerSessionAsync';
+import { RawServerSession } from '@/@types/RawServerSession';
 import { options } from '@/app/api/auth/[...nextauth]/options';
 import { getServerSession } from 'next-auth';
-
-interface GetServerSessionAsync {
-  user: {
-    id: string;
-    name: string;
-    email: string;
-    image: string;
-  };
-  token: {
-    provider: string;
-    type: string;
-    providerAccountId: string;
-    access_token: string;
-    expires_at: number;
-    id_token: string;
-    refresh_token: string;
-    scope: string;
-    token_type: string;
-  };
-}
-
-interface ServerSessionProps {
-  user: {
-    id: string;
-    name: string;
-    email: string;
-    image: string;
-    provider: string;
-    type: string;
-    providerAccountId: string;
-    access_token: string;
-    expires_at: number;
-    id_token: string;
-    refresh_token: string;
-    scope: string;
-    token_type: string;
-  };
-}
 
 export async function getServerSessionAsync(): Promise<GetServerSessionAsync> {
   const session = (await getServerSession(
     options
-  )) as ServerSessionProps | null;
+  )) satisfies RawServerSession | null;
+
   return {
     user: {
       id: session?.user?.id!,
