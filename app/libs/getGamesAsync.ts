@@ -1,14 +1,17 @@
+import { getServerSessionAsync } from './getServerSessionAsync';
+
 export default async function getGamesAsync(
-  token: string,
   offset: number,
   limit: number = 10
 ): Promise<Game[]> {
+  const { token } = await getServerSessionAsync();
+
   const games = (await fetch(`${process.env.IGDB_BASEURL}/games`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Client-ID': process.env.TWITCH_ID as string,
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token?.access_token}`,
     },
     body: `fields *; 
            fields cover.image_id,cover.animated,cover.height,cover.width,cover.url; 
@@ -18,7 +21,7 @@ export default async function getGamesAsync(
            offset ${offset}; 
            limit ${limit}; 
            sort created_at desc; 
-           where rating != null;`,
+           where rating >= 60 & genres != null & cover != null;`,
   })
     .then((response) => (response.status === 200 ? response.json() : []))
     .catch((exception) => {

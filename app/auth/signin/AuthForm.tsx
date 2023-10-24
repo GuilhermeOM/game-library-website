@@ -18,7 +18,7 @@ export default function AuthForm() {
 
     if (termsAccepted) {
       await signIn('twitch', {
-        callbackUrl: 'http://localhost:3000',
+        callbackUrl: '/',
       });
     }
   }

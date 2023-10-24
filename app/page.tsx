@@ -1,15 +1,10 @@
-import GamesList from './components/GamesList/GamesList';
+import GamesList from './components/Game/GamesList';
 import Navbar from './components/Navbar/Navbar';
 import getGameHDImageByGamesListAsync from './libs/getGameHDImageAsync';
 import getGamesAsync from './libs/getGamesAsync';
-import { getServerSessionAsync } from './libs/getServerSessionAsync';
 
 export default async function Home() {
-  const { token } = await getServerSessionAsync();
-  const preFetchGames = await getGamesAsync(
-    token?.access_token ? token?.access_token : '',
-    1
-  );
+  const preFetchGames = await getGamesAsync(1, 20);
   const preFetchHDImages = await getGameHDImageByGamesListAsync(preFetchGames);
 
   for (const preFetchGame of preFetchGames) {
@@ -22,9 +17,9 @@ export default async function Home() {
     <div>
       <Navbar />
       <main className='p-8 pt-[calc(var(--navbar-height)+1rem)]'>
-        <div>
+        <section className='h-72 lg:h-80 xl:h-96 overflow-scroll scroll-smooth'>
           <GamesList preFetchGames={preFetchGames} />
-        </div>
+        </section>
       </main>
     </div>
   );
