@@ -1,4 +1,5 @@
-import GamesList from './components/Game/GamesList';
+import CoverList from './components/Cover/CoverList';
+import InfiniteScrollList from './components/InfiniteScrollList';
 import Navbar from './components/Navbar/Navbar';
 import getGameHDImageByGamesListAsync from './libs/getGameHDImageAsync';
 import getGamesAsync from './libs/getGamesAsync';
@@ -17,8 +18,10 @@ export default async function Home() {
     <div>
       <Navbar />
       <main className='p-8 pt-[calc(var(--navbar-height)+1rem)]'>
-        <section className='h-72 lg:h-80 xl:h-96 overflow-scroll scroll-smooth'>
-          <GamesList preFetchGames={preFetchGames} />
+        <section className='w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]'>
+          <InfiniteScrollList>
+            <CoverList games={preFetchGames} />
+          </InfiniteScrollList>
         </section>
       </main>
     </div>
