@@ -1,6 +1,6 @@
 import CoverList from './components/Cover/CoverList';
 import InfiniteScrollList from './components/InfiniteScrollList';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar';
 import getGameHDImageByGamesListAsync from './libs/getGameHDImageAsync';
 import getGamesAsync from './libs/getGamesAsync';
 
