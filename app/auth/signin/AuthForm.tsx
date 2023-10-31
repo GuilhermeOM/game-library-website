@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import AuthButton from './AuthButton';
 import { signIn } from 'next-auth/react';
-import { TwitchLogo } from '@phosphor-icons/react';
+import { FaTwitch } from 'react-icons/fa';
 import { useState } from 'react';
 
 export default function AuthForm() {
@@ -39,7 +39,7 @@ export default function AuthForm() {
             </Link>
           </p>
         </div>
-        <AuthButton icon={<TwitchLogo size={28} />} disabled={!termsAccepted} />
+        <AuthButton icon={<FaTwitch size={28} />} disabled={!termsAccepted} />
       </div>
     </form>
   );
