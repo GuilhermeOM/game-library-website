@@ -1,18 +1,13 @@
 import Image from 'next/image';
 import CoverList from './components/Cover/CoverList';
-import Divider from './components/Divider';
 import InfiniteScrollList from './components/InfiniteScrollList';
 import Navbar from './components/Navbar';
 import getGameHDImageByGamesListAsync from './libs/getGameHDImageAsync';
 import getGamesAsync from './libs/getGamesAsync';
-import videogame from '../public/ellie-the-last-of-us.gif';
-
-import {
-  BsNintendoSwitch,
-  BsPlaystation,
-  BsXbox,
-  BsFillMouseFill,
-} from 'react-icons/bs';
+import tlouEllieGif from '../public/ellie-the-last-of-us.gif';
+import Caption from './components/Caption';
+import Title from './components/Title';
+import PlatformsFooter from './components/Footer/PlatformsFooter';
 
 export default async function Home() {
   const preFetchGames = await getGamesAsync(1, 20);
@@ -28,49 +23,33 @@ export default async function Home() {
     <div>
       <Navbar />
       <main className='p-8 pb-0 pt-[calc(var(--navbar-height)+1rem)]'>
-        <section className='w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_28px,_black_calc(100%-56px),transparent_100%)] sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]'>
+        <section className='w-full overflow-hidden mobile-mask-img-x sm:mask-img-x'>
           <InfiniteScrollList>
             <CoverList games={preFetchGames} />
           </InfiniteScrollList>
         </section>
-        <section className='border-y border-y-1 border-stone-900 bg-[#000] -mx-8 p-8 flex flex-col items-center gap-8 h-screen sm:h-auto relative'>
-          <div className='flex gap-4 align-middle justify-center items-center'>
-            <aside className='bg-[#000]/80 backdrop-blur-sm w-5/6 h-fit'>
-              <h2 className='text-2xl font-bold mb-4'>
-                Explore a bunch of other games just like the ones above
-              </h2>
-              <p className='text-sm text-gray-400'>
+        <section className='flex flex-col -mx-8 p-8 gap-6 h-screen justify-normal items-center border-y border-stone-900 bg-[var(--background-secondary-color)]'>
+          <div className='flex gap-6 items-center'>
+            <aside className='flex flex-col w-full max-w-[720px] justify-center text-center sm:text-left'>
+              <Title>Explore a bunch of other games that you enjoy</Title>
+              <Caption>
                 Here you can learn more about the games you play and even look
                 for twitch streams on live. Try clicking in one of the platforms
                 icons right in the bottom or just explore!
-              </p>
-              <button className='p-2 w-full bg-[#000] border border-stone-900 rounded-md font-bold hover:bg-violet-700 transition ease-out delay-70 mt-10'>
+              </Caption>
+              <button className='p-2 mt-10 w-full bg-[var(--background-secondary-color)] border border-stone-900 rounded-md font-bold hover:bg-violet-700 button-animation'>
                 Explore
               </button>
             </aside>
-            <aside className='hidden sm:flex bg-[#000]/80 backdrop-blur-sm w-full h-fit my-auto items-center align-middle justify-center'>
-              <div className='[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]'>
-                <Image src={videogame} alt='ellie' />
-              </div>
+            <aside className='hidden md:flex w-full min-w-[364px] max-w-[768px] h-fit align-middle justify-center'>
+              <Image
+                src={tlouEllieGif}
+                alt='ellie from the last of us'
+                className='mask-img-x'
+              />
             </aside>
           </div>
-          <div className='flex flex-col items-center gap-4'>
-            <Divider position='horizontal' divisionLength={1} />
-            <ul className='inline-flex [&_li]:mx-4'>
-              <li className='cursor-pointer hover:text-blue-700 transition ease-out delay-70'>
-                <BsPlaystation size={18} />
-              </li>
-              <li className='cursor-pointer hover:text-green-700 transition ease-out delay-70'>
-                <BsXbox size={18} />
-              </li>
-              <li className='cursor-pointer hover:text-red-700 transition ease-out delay-70'>
-                <BsNintendoSwitch size={18} />
-              </li>
-              <li className='cursor-pointer hover:text-gray-700 transition ease-out delay-70'>
-                <BsFillMouseFill size={18} />
-              </li>
-            </ul>
-          </div>
+          <PlatformsFooter />
         </section>
       </main>
     </div>

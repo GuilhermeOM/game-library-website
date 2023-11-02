@@ -2,9 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .mobile-mask-img-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 28px,
+      black calc(100% - 56px),
+      transparent 100%
+    );
+  }
+
+  .mask-img-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 128px,
+      black calc(100% - 200px),
+      transparent 100%
+    );
+  }
+
+  .button-animation {
+    @apply transition ease-out delay-75;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-color: #0c0a09;
+  --background-primary-color: #0c0a09;
+  --background-secondary-color: #000;
   --navbar-height: 4rem;
 }
 
@@ -33,7 +60,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-color: #0c0a09;
+    --background-primary-color: #0c0a09;
   }
 }
 
@@ -43,5 +70,5 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: var(--background-color);
+  background: var(--background-primary-color);
 }

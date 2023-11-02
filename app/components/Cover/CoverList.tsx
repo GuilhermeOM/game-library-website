@@ -11,7 +11,7 @@ export default function CoverList({ games }: CoverListProps) {
       className={`flex items-center justify-center md:justify-start [&_li]:m-2`}
     >
       {games?.map((game) => (
-        <li key={game.id} className='w-36 lg:w-44 lg:h-52 xl:w-52 xl:h-60 '>
+        <li key={game.id} className='w-36 lg:w-44 lg:h-52 '>
           <Link href={`/game/${game.id}`}>
             <Cover
               base64Image={

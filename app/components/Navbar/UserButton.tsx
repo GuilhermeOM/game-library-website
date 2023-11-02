@@ -9,7 +9,7 @@ interface UserButtonProps {
 export default function UserButton({ user }: UserButtonProps) {
   if (user) {
     return (
-      <button className='p-2 bg-[#000] border border-stone-900 rounded-md hover:bg-stone-900 transition ease-out delay-70'>
+      <button className='p-2 bg-[var(--background-secondary-color)] border border-stone-900 rounded-md hover:bg-stone-900 button-animation'>
         <FaUserAstronaut size={18} />
       </button>
     );
@@ -17,7 +17,7 @@ export default function UserButton({ user }: UserButtonProps) {
 
   return (
     <Link href='/auth/signin'>
-      <button className='p-2 bg-[#000] border border-stone-900 rounded-md hover:bg-stone-900 transition ease-out delay-70'>
+      <button className='p-2 bg-[var(--background-secondary-color)] border border-stone-900 rounded-md hover:bg-stone-900 button-animation'>
         <RiLoginBoxFill size={18} />
       </button>
     </Link>
