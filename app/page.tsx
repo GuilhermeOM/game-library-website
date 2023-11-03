@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import CoverList from './components/Cover/CoverList';
-import InfiniteScrollList from './components/InfiniteScrollList';
 import Navbar from './components/Navbar';
 import getGameHDImageByGamesListAsync from './libs/getGameHDImageAsync';
 import getGamesAsync from './libs/getGamesAsync';
@@ -22,11 +21,10 @@ export default async function Home() {
   return (
     <div>
       <Navbar />
-      <main className='p-8 pb-0 pt-[calc(var(--navbar-height)+1rem)]'>
-        <section className='w-full overflow-hidden mobile-mask-img-x sm:mask-img-x'>
-          <InfiniteScrollList>
-            <CoverList games={preFetchGames} />
-          </InfiniteScrollList>
+      <main className='flex flex-col gap-4 p-8 pb-0 pt-[calc(var(--navbar-height)+1rem)]'>
+        <section className='w-full inline-flex flex-nowrap overflow-hidden mobile-mask-img-x sm:mask-img-x'>
+          <CoverList games={preFetchGames} infiniteScroll />
+          <CoverList games={preFetchGames} infiniteScroll ariaHidden />
         </section>
         <section className='flex flex-col -mx-8 p-8 gap-6 h-screen justify-normal items-center border-y border-stone-900 bg-[var(--background-secondary-color)]'>
           <div className='flex gap-6 items-center'>
