@@ -10,7 +10,7 @@ export default function Cover({ base64Image, alt }: CoverProps) {
     <Image
       src={`data:image/jpg;base64, ${base64Image}`}
       height={200}
-      width={200}
+      width={180}
       alt={alt}
       className='w-full h-full cursor-pointer rounded-sm hover:scale-105 transition ease-in-out delay-70'
     />
