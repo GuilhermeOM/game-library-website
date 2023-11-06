@@ -1,14 +1,16 @@
 import Image from 'next/image';
+
 import CoverList from './components/Cover/CoverList';
 import Navbar from './components/Navbar';
-import getGameHDImageByGamesListAsync from './libs/getGameHDImageAsync';
-import getGamesAsync from './libs/getGamesAsync';
-import tlouEllieGif from '../public/ellie-the-last-of-us.gif';
 import Caption from './components/Caption';
 import Title from './components/Title';
 import PlatformsFooter from './components/Footer/PlatformsFooter';
 import Container from './components/Container';
 import GenreCardList from './components/Genre/GenreCardList';
+import getGameHDImageByGamesListAsync from './libs/getGameHDImageAsync';
+import getGamesAsync from './libs/getGamesAsync';
+
+import tlouEllieGif from '../public/ellie-the-last-of-us.gif';
 
 export default async function Home() {
   const preFetchGames = await getGamesAsync(1, 20);
@@ -28,10 +30,10 @@ export default async function Home() {
           <CoverList games={preFetchGames} infiniteScroll />
           <CoverList games={preFetchGames} infiniteScroll ariaHidden />
         </section>
-        <section className='flex flex-col -mx-8 p-8 gap-6 h-full justify-normal items-center border-y border-stone-900 bg-[var(--background-secondary-color)]'>
+        <div className='-mx-8 p-8 h-full border-t border-stone-900 bg-[var(--background-secondary-color)]'>
           <Container>
-            <div className='flex gap-6'>
-              <aside className='flex flex-col w-full max-w-[720px] justify-center text-center sm:text-left'>
+            <section className='flex gap-6'>
+              <div className='flex flex-col w-full justify-center text-center sm:text-left'>
                 <Title>Explore a bunch of other games that you enjoy</Title>
                 <Caption>
                   Here you can learn more about the games you play and even look
@@ -41,25 +43,25 @@ export default async function Home() {
                 <button className='p-2 mt-10 w-full bg-[var(--background-secondary-color)] border border-stone-900 rounded-md font-bold hover:bg-violet-700 button-animation'>
                   Explore
                 </button>
-              </aside>
-              <aside className='hidden md:flex w-full min-w-[364px] max-w-[768px] h-fit align-middle justify-center'>
+              </div>
+              <aside className='hidden md:flex w-full min-w-[364px] align-middle justify-center'>
                 <Image
                   src={tlouEllieGif}
                   alt='ellie from the last of us'
                   className='mask-img-x'
                 />
               </aside>
-            </div>
+            </section>
             <PlatformsFooter />
-            <div className='mt-10 w-full'>
-              <header className='text-center mb-10'>
+            <section className='mt-10 w-full'>
+              <div className='text-center mb-10'>
                 <Title>How about your prefered genre?</Title>
                 <Caption>Search for games according to their genres!</Caption>
-              </header>
-              <GenreCardList />
-            </div>
+              </div>
+              <GenreCardList genresId={['rpg', 'adventure', 'fighting']} />
+            </section>
           </Container>
-        </section>
+        </div>
       </main>
     </div>
   );
