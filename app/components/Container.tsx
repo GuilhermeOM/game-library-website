@@ -9,7 +9,7 @@ export default function Container({
 }: ContainerProps) {
   return (
     <div
-      className={`flex gap-6 items-center justify-center mx-auto w-full 2xl:w-[1384px] 
+      className={`flex gap-6 items-center justify-center mx-auto w-full h-full 2xl:w-[1384px] 
       ${flexFlow === 'column' && 'flex-col'} 
       ${flexFlow === 'row' && 'flex-row'}`}
     >
