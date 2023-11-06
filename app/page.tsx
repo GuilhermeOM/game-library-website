@@ -31,7 +31,7 @@ export default async function Home() {
           <CoverList games={preFetchGames} infiniteScroll ariaHidden />
         </section>
         <div className='-mx-8 p-8 h-full border-t border-stone-900 bg-[var(--background-secondary-color)]'>
-          <Container>
+          <Container flexFlow='column'>
             <section className='flex gap-6'>
               <div className='flex flex-col w-full justify-center text-center sm:text-left'>
                 <Title>Explore a bunch of other games that you enjoy</Title>
