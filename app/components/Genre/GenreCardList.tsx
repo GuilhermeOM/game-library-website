@@ -7,12 +7,11 @@ interface GenreCardListProps {
 }
 
 export default function GenreCardList({ genresId }: GenreCardListProps) {
-  const filteredGenres: GenreResume[] = [];
-  genresId.forEach((genreId) =>
-    filteredGenres.push(
-      genresResume.filter((genreResume) => genreResume.id === genreId)[0]
-    )
-  );
+  const filteredGenres = [];
+  
+  for (const id of genresId) {
+    filteredGenres.push(genresResume.filter((genreResume) => genreResume.id === id)[0])
+  }
 
   return (
     <ul className='flex w-full md:inline-flex flex-col md:flex-row items-center gap-8'>

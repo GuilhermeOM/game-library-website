@@ -1,14 +1,18 @@
 import Image from 'next/image';
 
 interface CoverProps {
-  base64Image: string;
+  imageSource: string;
   alt: string;
 }
 
-export default function Cover({ base64Image, alt }: CoverProps) {
+export default function Cover({ imageSource, alt }: CoverProps) {
+  const image = imageSource
+    .replace('{width}', '300')
+    .replace('{height}', '400');
+
   return (
     <Image
-      src={`data:image/jpg;base64, ${base64Image}`}
+      src={image}
       height={200}
       width={180}
       alt={alt}
