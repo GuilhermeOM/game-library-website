@@ -7,28 +7,20 @@ import Title from './components/Title';
 import PlatformsFooter from './components/Footer/PlatformsFooter';
 import Container from './components/Container';
 import GenreCardList from './components/Genre/GenreCardList';
-import getGameHDImageByGamesListAsync from './libs/getGameHDImageAsync';
-import getGamesAsync from './libs/getGamesAsync';
 
 import tlouEllieGif from '../public/ellie-the-last-of-us.gif';
+import getGamesAsync from './libs/getGamesAsync';
 
 export default async function Home() {
-  const preFetchGames = await getGamesAsync(1, 20);
-  const preFetchHDImages = await getGameHDImageByGamesListAsync(preFetchGames);
-
-  for (const preFetchGame of preFetchGames) {
-    preFetchGame.cover['hd'] = preFetchHDImages.filter(
-      (hd_image) => hd_image.game_id === preFetchGame.id
-    )[0];
-  }
+  const games = await getGamesAsync();
 
   return (
     <div>
       <Navbar />
       <main className='flex flex-col gap-4 p-8 pb-0 pt-[calc(var(--navbar-height)+1rem)]'>
         <section className='w-full inline-flex flex-nowrap overflow-hidden mobile-mask-img-x sm:mask-img-x'>
-          <CoverList games={preFetchGames} infiniteScroll />
-          <CoverList games={preFetchGames} infiniteScroll ariaHidden />
+          <CoverList games={games} infiniteScroll />
+          <CoverList games={games} infiniteScroll ariaHidden />
         </section>
         <div className='-mx-8 p-8 h-full border-t border-stone-900 bg-[var(--background-secondary-color)]'>
           <Container flexFlow='column'>

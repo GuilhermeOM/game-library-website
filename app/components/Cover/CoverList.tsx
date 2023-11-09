@@ -22,12 +22,7 @@ export default function CoverList({
       {games?.map((game) => (
         <li key={game.id} className='w-36 lg:w-44 lg:h-52 '>
           <Link href={`/game/${game.id}`}>
-            <Cover
-              base64Image={
-                game.cover.hd?.image_base64 ? game.cover.hd?.image_base64 : ''
-              }
-              alt={game.name}
-            />
+            <Cover imageSource={game.box_art_url} alt={game.name} />
           </Link>
         </li>
       ))}

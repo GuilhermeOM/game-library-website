@@ -1,4 +1,4 @@
-interface Game {
+interface About {
   id: number;
   age_ratings: number[];
   alternative_names: number[];
@@ -6,14 +6,13 @@ interface Game {
   bundles: number[];
   category: number;
   collection: number;
-  cover: Cover;
   created_at: number;
   external_games: number[];
   first_release_date: number;
   follows: number;
   game_engines: number[];
   game_modes: number[];
-  genres: Genre[];
+  genres: { id: number; name: string }[];
   involved_companies: number[];
   name: string;
   platforms: Platform[];
@@ -27,7 +26,7 @@ interface Game {
   storyline: string;
   summary: string;
   tags: number[];
-  themes: Theme[];
+  themes: { id: number; name: string }[];
   total_rating: number;
   total_rating_count: number;
   updated_at: number;
@@ -39,31 +38,4 @@ interface Game {
   checksum: string;
   language_supports: number[];
   game_localizations: number[];
-}
-
-interface Theme {
-  id: number;
-  name: string;
-}
-
-interface Cover {
-  id: number;
-  image_id: string;
-  animated: boolean;
-  height: number;
-  width: number;
-  url: string;
-  hd?: GameHDImage;
-}
-
-interface Genre {
-  id: number;
-  name: string;
-}
-
-interface Platform {
-  id: number;
-  abbreviation: string;
-  alternative_name: string;
-  name: string;
 }

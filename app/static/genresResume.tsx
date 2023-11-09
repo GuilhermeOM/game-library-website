@@ -1,5 +1,12 @@
 import { GiSwordsEmblem, GiMountainRoad, GiPunchBlast } from 'react-icons/gi';
 
+interface GenreResume {
+  id: string;
+  title: string;
+  caption: string;
+  icon: JSX.Element;
+}
+
 export default [
   {
     id: 'rpg',
