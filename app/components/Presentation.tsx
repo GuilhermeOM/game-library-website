@@ -4,7 +4,7 @@ import Gif from './Gif';
 import NavigateButton from './NavigateButton';
 
 interface PresentationProps {
-  textPosition: 'after' | 'before';
+  gifPosition: 'after' | 'before';
   title: string;
   caption: string;
   giphyId: string;
@@ -13,16 +13,16 @@ interface PresentationProps {
 }
 
 export default function Presentation({
-  textPosition,
   title,
   caption,
   giphyId,
+  gifPosition,
   buttonText,
   navigation,
 }: PresentationProps) {
   return (
     <section className='flex gap-6'>
-      {textPosition === 'after' && (
+      {gifPosition === 'before' && (
         <aside className='hidden md:flex items-center align-middle justify-center w-full h-full'>
           <Gif
             className='mask-img-x'
@@ -39,7 +39,7 @@ export default function Presentation({
           <NavigateButton buttonText={buttonText} navigation={navigation} />
         )}
       </div>
-      {textPosition === 'before' && (
+      {gifPosition === 'after' && (
         <aside className='hidden md:flex items-center align-middle justify-center w-full h-full'>
           <Gif
             className='mask-img-x'

@@ -22,10 +22,10 @@ export default async function Home() {
         <div className='-mx-8 p-8 h-full border-t border-stone-900 bg-[var(--background-secondary-color)]'>
           <Container flexFlow='column'>
             <Presentation
-              textPosition='before'
               title='Explore a bunch of games that you enjoy'
               caption='Discover games that you have never seen, learn about the games that you already know, look for twitch streams related to the selected games, get information of the lives that are happening related to the current top games and much more!'
               giphyId='T2lCZ86f1qS3ZrrM35'
+              gifPosition='after'
               buttonText='Explore'
               navigation='/#'
             />
@@ -38,10 +38,10 @@ export default async function Home() {
               <GenreCardList genresId={['rpg', 'adventure', 'fighting']} />
             </section>
             <Presentation
-              textPosition='after'
               title='Your favorite games in one place'
               caption='Favorite the games that you love to always keep track of the lives that are happening! Organize them according to your taste and also get information about similar games.'
               giphyId='bSYtN6BKArhFBLUtF9'
+              gifPosition='before'
               buttonText='Favorites'
               navigation='/#'
             />
