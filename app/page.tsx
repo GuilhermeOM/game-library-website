@@ -1,14 +1,11 @@
-import Image from 'next/image';
-
 import CoverList from './components/Cover/CoverList';
 import Navbar from './components/Navbar';
 import Caption from './components/Caption';
-import Title from './components/Title';
-import PlatformsFooter from './components/Footer/PlatformsFooter';
 import Container from './components/Container';
 import GenreCardList from './components/Genre/GenreCardList';
+import Presentation from './components/Presentation';
+import PlatformsFooter from './components/Footer/PlatformsFooter';
 
-import tlouEllieGif from '../public/ellie-the-last-of-us.gif';
 import getGamesAsync from './libs/getGamesAsync';
 
 export default async function Home() {
@@ -24,33 +21,32 @@ export default async function Home() {
         </section>
         <div className='-mx-8 p-8 h-full border-t border-stone-900 bg-[var(--background-secondary-color)]'>
           <Container flexFlow='column'>
-            <section className='flex gap-6'>
-              <div className='flex flex-col w-full justify-center text-center sm:text-left'>
-                <Title>Explore a bunch of other games that you enjoy</Title>
-                <Caption>
-                  Here you can learn more about the games you play and even look
-                  for twitch streams on live. Try clicking in one of the
-                  platforms icons right in the bottom or just explore!
-                </Caption>
-                <button className='p-2 mt-10 w-full bg-[var(--background-secondary-color)] border border-stone-900 rounded-md font-bold hover:bg-violet-700 button-animation'>
-                  Explore
-                </button>
-              </div>
-              <aside className='hidden md:flex w-full min-w-[364px] align-middle justify-center'>
-                <Image
-                  src={tlouEllieGif}
-                  alt='ellie from the last of us'
-                  className='mask-img-x'
-                />
-              </aside>
-            </section>
-            <PlatformsFooter />
-            <section className='mt-10 w-full'>
+            <Presentation
+              title='Explore a bunch of games that you enjoy'
+              caption='Discover games that you have never seen, learn about the games that you already know, look for twitch streams related to the selected games, get information of the lives that are happening related to the current top games and much more!'
+              giphyId='T2lCZ86f1qS3ZrrM35'
+              gifPosition='after'
+              buttonText='Explore'
+              navigation='/#'
+            />
+            <section className='my-10 w-full'>
               <div className='text-center mb-10'>
-                <Title>How about your prefered genre?</Title>
-                <Caption>Search for games according to their genres!</Caption>
+                <Caption>
+                  • Filter by the game genre! Here are some examples:
+                </Caption>
               </div>
               <GenreCardList genresId={['rpg', 'adventure', 'fighting']} />
+            </section>
+            <Presentation
+              title='Your favorite games in one place'
+              caption='Favorite the games that you love to always keep track of the lives that are happening! Organize them according to your taste and also get information about similar games.'
+              giphyId='bSYtN6BKArhFBLUtF9'
+              gifPosition='before'
+              buttonText='Favorites'
+              navigation='/#'
+            />
+            <section className='my-10'>
+              <PlatformsFooter />
             </section>
           </Container>
         </div>

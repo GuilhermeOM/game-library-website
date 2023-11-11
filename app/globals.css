@@ -62,7 +62,7 @@
   }
 
   .button-animation {
-    @apply transition ease-out delay-75;
+    @apply transition-all ease-out delay-75;
   }
 }
 
