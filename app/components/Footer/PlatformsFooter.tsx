@@ -9,7 +9,7 @@ import Divider from '../Divider';
 export default function PlatformsFooter() {
   return (
     <footer className='flex flex-col [&_ul]:mt-4 items-center w-fit'>
-      <Divider position='horizontal' divisionLength={1} />
+      <Divider position='horizontal' />
       <ul className='inline-flex [&_li]:mx-4'>
         <li className='cursor-pointer hover:text-blue-700 button-animation'>
           <BsPlaystation size={18} />
