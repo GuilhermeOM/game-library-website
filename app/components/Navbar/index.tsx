@@ -33,7 +33,7 @@ export default async function Navbar() {
               </Link>
             ))}
           </section>
-          <Divider position='vertical' divisionLength={2} />
+          <Divider position='vertical' />
           <UserButton user={session.user?.id} />
           <TwitchButton />
         </nav>
