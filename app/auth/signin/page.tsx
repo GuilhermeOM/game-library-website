@@ -15,7 +15,7 @@ export default function Auth() {
           className='h-full w-full object-cover'
         />
       </div>
-      <div className='w-4/12 h-screen max-w-3xl xl:p-20 p-8 absolute right-0 flex flex-col justify-center bg-[var(--background-secondary-color)]'>
+      <div className='w-4/12 h-screen max-w-3xl xl:p-20 p-8 absolute right-0 flex flex-col justify-center bg-[var(--background-primary-color)]'>
         <Title stronger>Sign in with Twitch</Title>
         <Caption>Welcome to the Game Library Website.</Caption>
         <Caption>Register to learn more about the games.</Caption>

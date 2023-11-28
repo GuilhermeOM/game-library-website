@@ -5,8 +5,8 @@ import Container from './components/Container';
 import GenreCardList from './components/Genre/GenreCardList';
 import Presentation from './components/Presentation';
 import PlatformsFooter from './components/Footer/PlatformsFooter';
-
 import getGamesAsync from './libs/getGamesAsync';
+import TwitchCarousel from './components/TwitchCarousel';
 
 export default async function Home() {
   const games = await getGamesAsync();
@@ -14,12 +14,12 @@ export default async function Home() {
   return (
     <div>
       <Navbar />
-      <main className='flex flex-col gap-4 p-8 pb-0 pt-[calc(var(--navbar-height)+1rem)]'>
-        <section className='w-full inline-flex flex-nowrap overflow-hidden mobile-mask-img-x sm:mask-img-x'>
+      <main className='flex flex-col p-8 pb-0 pt-[calc(var(--navbar-height)+1rem)] bg-[var(--background-secondary-color)]'>
+        <section className='w-full mb-4 inline-flex flex-nowrap overflow-hidden mobile-mask-img-x sm:mask-img-x'>
           <CoverList games={games} infiniteScroll />
           <CoverList games={games} infiniteScroll ariaHidden />
         </section>
-        <div className='-mx-8 p-8 h-full border-t border-stone-900 bg-[var(--background-secondary-color)]'>
+        <div className='-mx-8 p-8 h-full border-t border-stone-900 bg-[var(--background-primary-color)]'>
           <Container flexFlow='column'>
             <Presentation
               title='Explore a bunch of games that you enjoy'
@@ -45,7 +45,26 @@ export default async function Home() {
               buttonText='Favorites'
               navigation='/#'
             />
-            <section className='my-10'>
+          </Container>
+          <section className='flex flex-col items-center gap-6 my-10'>
+            <h1 className='inline-block text-transparent bg-clip-text font-extrabold text-4xl mb-4 bg-gradient-to-r from-violet-500 via-violet-600 to-fuchsia-500'>
+              Twitch
+            </h1>
+            <Caption>
+              Take a look at some of the live streams going right now!
+            </Caption>
+            <section className='w-full mb-4 inline-flex flex-nowrap overflow-hidden mobile-mask-img-x sm:mask-img-x'>
+              <TwitchCarousel infiniteScrollDirection='left' />
+              <TwitchCarousel infiniteScrollDirection='left' ariaHidden />
+            </section>
+            <section className='w-full mb-4 inline-flex flex-nowrap justify-end overflow-hidden mobile-mask-img-x sm:mask-img-x'>
+              <TwitchCarousel infiniteScrollDirection='right' ariaHidden />
+              <TwitchCarousel infiniteScrollDirection='right' />
+            </section>
+          </section>
+
+          <Container>
+            <section>
               <PlatformsFooter />
             </section>
           </Container>

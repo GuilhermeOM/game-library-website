@@ -1,18 +1,16 @@
 import { getServerSessionAsync } from './getServerSessionAsync';
 
-export default async function getGamesAsync(cursor?: string): Promise<Game[]> {
+export default async function getStreamsAsync(cursor?: string) {
   const { token } = await getServerSessionAsync();
 
-  const games = (await fetch(
-    `${process.env.TWITCH_BASEURL}/games/top${
-      cursor ? `?after=${cursor}` : ''
-    }`,
+  const streams = (await fetch(
+    `${process.env.TWITCH_BASEURL}/streams${cursor ? `?after=${cursor}` : ''}`,
     {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Client-ID': process.env.TWITCH_ID as string,
-        Authorization: `Bearer ulrgxxx3i3azaw317fbkevpb4hb8lc`,
+        Authorization: `Bearer ${token?.access_token}`,
       },
     }
   )
@@ -20,7 +18,10 @@ export default async function getGamesAsync(cursor?: string): Promise<Game[]> {
     .catch((exception) => {
       console.error(exception);
       return null;
-    })) satisfies GetTopGamesAsync | null as GetTopGamesAsync | null;
+    })) satisfies GetStreamsAsync | null as GetStreamsAsync | null;
 
-  return games !== null ? games.data.filter((game) => game.igdb_id !== '') : [];
+  return {
+    success: streams !== null,
+    data: streams ? streams.data : [],
+  };
 }
