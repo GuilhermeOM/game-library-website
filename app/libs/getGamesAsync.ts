@@ -12,7 +12,7 @@ export default async function getGamesAsync(cursor?: string): Promise<Game[]> {
       headers: {
         Accept: 'application/json',
         'Client-ID': process.env.TWITCH_ID as string,
-        Authorization: `Bearer ulrgxxx3i3azaw317fbkevpb4hb8lc`,
+        Authorization: `Bearer ${token?.access_token}`,
       },
     }
   )
