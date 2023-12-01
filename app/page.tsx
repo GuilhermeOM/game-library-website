@@ -23,7 +23,7 @@ export default async function Home() {
           <Container flexFlow='column'>
             <Presentation
               title='Explore a bunch of games that you enjoy'
-              caption='Discover games that you have never seen, learn about the games that you already know, look for twitch streams related to the selected games, get information of the lives that are happening related to the current top games and much more!'
+              caption='Discover games that you have never seen, learn more about those games you used to play or those you did not know that even exists, look for twitch streams related to the selected games and much more!'
               giphyId='T2lCZ86f1qS3ZrrM35'
               gifPosition='after'
               buttonText='Explore'
