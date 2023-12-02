@@ -13,6 +13,7 @@
     "@giphy/js-fetch-api": "^5.2.0",
     "@giphy/js-types": "^4.4.0",
     "@giphy/react-components": "^9.2.0",
+    "framer-motion": "^10.16.5",
     "next": "13.5.4",
     "next-auth": "^4.23.2",
     "react": "^18",

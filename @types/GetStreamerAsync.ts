@@ -1,0 +1,3 @@
+interface getStreamersDataByIdAsync {
+  data: Streamer[];
+}
