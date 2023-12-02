@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "id": "rpg",
+      "title": "RPG"
+    },
+    {
+      "id": "adventure",
+      "title": "Adventure"
+    },
+    {
+      "id": "fighting",
+      "title": "Fighting"
+    },
+    {
+      "id": "strategy",
+      "title": "Strategy"
+    }
+  ]
+}
