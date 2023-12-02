@@ -2,11 +2,11 @@ import CoverList from './components/Cover/CoverList';
 import Navbar from './components/Navbar';
 import Caption from './components/Caption';
 import Container from './components/Container';
-import GenreCardList from './components/Genre/GenreCardList';
+import GenreDemoList from './components/Genre/GenreDemoList';
 import Presentation from './components/Presentation';
 import PlatformsFooter from './components/Footer/PlatformsFooter';
-import getGamesAsync from './libs/getGamesAsync';
 import TwitchCarousel from './components/TwitchCarousel';
+import getGamesAsync from './libs/getGamesAsync';
 
 export default async function Home() {
   const games = await getGamesAsync();
@@ -30,12 +30,9 @@ export default async function Home() {
               navigation='/#'
             />
             <section className='my-10 w-full'>
-              <div className='text-center mb-10'>
-                <Caption>
-                  • Filter by the game genre! Here are some examples:
-                </Caption>
-              </div>
-              <GenreCardList genresId={['rpg', 'adventure', 'fighting']} />
+              <GenreDemoList
+                genresId={['rpg', 'adventure', 'fighting', 'strategy']}
+              />
             </section>
             <Presentation
               title='Your favorite games in one place'
@@ -50,19 +47,20 @@ export default async function Home() {
             <h1 className='inline-block text-transparent bg-clip-text font-extrabold text-4xl mb-4 bg-gradient-to-r from-violet-500 via-violet-600 to-fuchsia-500'>
               Twitch
             </h1>
-            <Caption>
-              Take a look at some of the live streams going right now!
-            </Caption>
-            <section className='w-full mb-4 inline-flex flex-nowrap overflow-hidden mobile-mask-img-x sm:mask-img-x'>
+            <div className='text-center'>
+              <Caption>
+                Take a look at some of the live streams going right now!
+              </Caption>
+            </div>
+            <section className='w-full p-1 mb-4 inline-flex flex-nowrap overflow-hidden mobile-mask-img-x sm:mask-img-x'>
               <TwitchCarousel infiniteScrollDirection='left' />
               <TwitchCarousel infiniteScrollDirection='left' ariaHidden />
             </section>
-            <section className='w-full mb-4 inline-flex flex-nowrap justify-end overflow-hidden mobile-mask-img-x sm:mask-img-x'>
+            <section className='w-full p-1 mb-4 inline-flex flex-nowrap justify-end overflow-hidden mobile-mask-img-x sm:mask-img-x'>
               <TwitchCarousel infiniteScrollDirection='right' ariaHidden />
               <TwitchCarousel infiniteScrollDirection='right' />
             </section>
           </section>
-
           <Container>
             <section>
               <PlatformsFooter />
