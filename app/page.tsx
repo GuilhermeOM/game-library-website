@@ -29,11 +29,6 @@ export default async function Home() {
               buttonText='Explore'
               navigation='/#'
             />
-            <section className='my-10 w-full'>
-              <GenreDemoList
-                genresId={['rpg', 'adventure', 'fighting', 'strategy']}
-              />
-            </section>
             <Presentation
               title='Your favorite games in one place'
               caption='Favorite the games that you love to always keep track of the lives that are happening! Organize them according to your taste and also get information about similar games.'
@@ -62,6 +57,16 @@ export default async function Home() {
             </section>
           </section>
           <Container>
+            <section className='my-6 w-full flex flex-col items-center'>
+              <div className='text-center mb-10'>
+                <Caption>
+                  A bunch of game genres only for you. Filter them right here.
+                </Caption>
+              </div>
+              <GenreDemoList
+                genresId={['rpg', 'adventure', 'fighting', 'strategy']}
+              />
+            </section>
             <section>
               <PlatformsFooter />
             </section>
