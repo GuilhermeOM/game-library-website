@@ -11,7 +11,7 @@ export default function AuthButton({
 }: AuthButtonProps) {
   return (
     <button
-      className='mt-2 p-4 bg-violet-700 hover:bg-violet-800 rounded-sm w-full flex gap-2 justify-center items-center disabled:cursor-default disabled:bg-violet-800 button-animation'
+      className='w-full max-w-2xl mt-2 p-4 bg-violet-700 hover:bg-violet-800 rounded-md flex gap-2 justify-center items-center disabled:cursor-default disabled:bg-violet-800 button-animation'
       type='submit'
       disabled={disabled}
     >

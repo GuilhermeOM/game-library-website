@@ -24,23 +24,24 @@ export default function AuthForm() {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className='mt-8 flex flex-col gap-2'>
-        <div className='flex gap-2 items-center'>
-          <input
-            type='checkbox'
-            className='rounded-sm border-none bg-stone-900 text-violet-700 focus:ring-0 focus:ring-offset-0 cursor-pointer'
-            onChange={handleTermsAccepted}
-          />
-          <p className='text-sm text-gray-400'>
-            I agree to the{' '}
-            <Link href='#' className='text-violet-600 hover:text-violet-700'>
-              terms of service
-            </Link>
-          </p>
-        </div>
-        <AuthButton icon={<FaTwitch size={28} />} disabled={!termsAccepted} />
+    <form
+      onSubmit={onSubmit}
+      className='w-full mt-8 flex flex-col gap-6 items-center'
+    >
+      <div className='flex gap-2 items-center'>
+        <input
+          type='checkbox'
+          className='rounded-sm border-none bg-stone-900 text-violet-700 focus:ring-0 focus:ring-offset-0 cursor-pointer'
+          onChange={handleTermsAccepted}
+        />
+        <p className='text-sm text-gray-400'>
+          I agree to the{' '}
+          <Link href='#' className='text-violet-600 hover:text-violet-700'>
+            terms of service
+          </Link>
+        </p>
       </div>
+      <AuthButton icon={<FaTwitch size={28} />} disabled={!termsAccepted} />
     </form>
   );
 }
