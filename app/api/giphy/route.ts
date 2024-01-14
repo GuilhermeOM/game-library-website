@@ -1,4 +1,4 @@
-import getGifById from '@/app/libs/getGifByIdAsync';
+import getGifById from '@/libs/getGifByIdAsync';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

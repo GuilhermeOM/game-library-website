@@ -1,12 +1,12 @@
-import CoverList from './components/Cover/CoverList';
-import Navbar from './components/Navbar';
-import Caption from './components/Caption';
-import Container from './components/Container';
-import GenreDemoList from './components/Genre/GenreDemoList';
-import Presentation from './components/Presentation';
-import PlatformsFooter from './components/Footer/PlatformsFooter';
-import TwitchCarousel from './components/TwitchCarousel';
-import getGamesAsync from './libs/getGamesAsync';
+import CoverList from '@/components/Cover/CoverList';
+import Navbar from '@/components/Navbar';
+import Caption from '@/components/Caption';
+import Container from '@/components/Container';
+import GenreDemoList from '@/components/Genre/GenreDemoList';
+import Presentation from '@/components/Presentation';
+import PlatformsFooter from '@/components/Footer/PlatformsFooter';
+import TwitchCarousel from '@/components/TwitchCarousel';
+import getGamesAsync from '@/libs/getGamesAsync';
 
 export default async function Home() {
   const games = await getGamesAsync();

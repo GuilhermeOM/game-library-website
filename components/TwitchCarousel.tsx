@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Card from './Card';
-import getStreamersDataByIdAsync from '../libs/getStreamerDataAsync';
-import getStreamsAsync from '../libs/getStreamsAsync';
+import getStreamersDataByIdAsync from '@/libs/getStreamerDataAsync';
+import getStreamsAsync from '@/libs/getStreamsAsync';
 
 interface TwitchCarouselProps {
   infiniteScrollDirection?: 'left' | 'right';

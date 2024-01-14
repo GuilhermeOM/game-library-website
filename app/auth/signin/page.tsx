@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import AuthForm from './AuthForm';
-import Title from '@/app/components/Title';
+import Title from '@/components/Title';
 
 export default function Auth() {
   return (
