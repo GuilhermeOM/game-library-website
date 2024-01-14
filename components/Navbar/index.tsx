@@ -6,7 +6,7 @@ import Logo from '../Logo';
 import TwitchButton from './TwitchButton';
 import UserButton from './UserButton';
 
-import { getServerSessionAsync } from '@/app/libs/getServerSessionAsync';
+import { getServerSessionAsync } from '@/libs/getServerSessionAsync';
 
 export default async function Navbar() {
   const session = await getServerSessionAsync();
