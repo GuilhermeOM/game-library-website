@@ -9,16 +9,24 @@ export const options: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ user, token, account }) {
-      if (user) {
-        token.user = { ...user, ...account };
+    async jwt({ token, account }) {
+      if (account) {
+        token = Object.assign({}, token, {
+          access_token: account.access_token,
+          expires_at: account.expires_at,
+        });
       }
+
       return token;
     },
     async session({ session, token }) {
-      if (token?.user) {
-        session.user = token.user;
+      if (session) {
+        session = Object.assign({}, session, {
+          access_token: token.access_token,
+          expires_at: token.expires_at,
+        });
       }
+
       return session;
     },
   },
