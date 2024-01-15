@@ -34,7 +34,7 @@ export default async function Navbar() {
             ))}
           </section>
           <Divider position='vertical' />
-          <UserButton user={session.user?.id} />
+          <UserButton isLoggedIn={session ? session.token.is_valid : false} />
           <TwitchButton />
         </nav>
       </Container>

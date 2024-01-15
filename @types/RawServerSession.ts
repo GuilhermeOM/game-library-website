@@ -1,17 +1,9 @@
 export interface RawServerSession {
   user: {
-    id: string;
     name: string;
     email: string;
     image: string;
-    provider: string;
-    type: string;
-    providerAccountId: string;
-    access_token: string;
-    expires_at: number;
-    id_token: string;
-    refresh_token: string;
-    scope: string;
-    token_type: string;
   };
+  access_token: string;
+  expires_at: number;
 }
